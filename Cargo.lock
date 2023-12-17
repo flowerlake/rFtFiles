@@ -3,5 +3,12 @@
 version = 3
 
 [[package]]
+name = "ipv6_tool"
+version = "0.1.0"
+
+[[package]]
 name = "r_fet"
 version = "0.1.0"
+dependencies = [
+ "ipv6_tool",
+]

@@ -1,13 +1,11 @@
-pub mod ipv6_tools {
-    pub fn connect() -> &str {
-        ""
-    }
-}
+use std::io::{Read, Write};
 
-fn handle_client(mut stream: std::net::TcpStream) {
+pub fn handle_client(mut stream: std::net::TcpStream) {
     // 处理连接的请求
     let mut buffer = [0; 128];
-    let bytes_read = stream.read(&mut buffer).expect("Failed to read from client");
+    let bytes_read = stream
+        .read(&mut buffer)
+        .expect("Failed to read from client");
 
     // 如果有读取到数据，进行处理
     if bytes_read > 0 {
@@ -21,6 +19,8 @@ fn handle_client(mut stream: std::net::TcpStream) {
 
         // 回应客户端
         let response = "Hello, client!";
-        stream.write_all(response.as_bytes()).expect("Failed to write to client");
+        stream
+            .write_all(response.as_bytes())
+            .expect("Failed to write to client");
     }
 }
