@@ -24,3 +24,14 @@ pub fn handle_client(mut stream: std::net::TcpStream) {
             .expect("Failed to write to client");
     }
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    pub fn test() {
+        match ipv6_tool::domain2ipv6("baidu.com:443") {
+            Ok(ipv6) => println!("IPv6 address: {}", ipv6),
+            Err(err) => eprintln!("Error: {}", err),
+        }
+    }
+}

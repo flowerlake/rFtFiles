@@ -1,4 +1,6 @@
+pub mod module;
 pub mod util;
+
 pub struct ThreadPool;
 
 impl ThreadPool {
